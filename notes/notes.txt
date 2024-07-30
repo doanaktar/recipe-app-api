@@ -1,0 +1,38 @@
+docker ile projeyi eslestirme
+    - docker sitesi settings, security > new access token
+    - github > projenin repostorysi > settings > secrets > actions > new repostory secret
+        -name: DOCKERHUB_USER, value: doganaktar (dockerhub kullanici adi)
+        -name: DOCKERHUB_TOKEN, value: dckr_pat_66kibX4R6YVLicCuxhbYd4Qiks0 (dockerhub uzerinden olusturdugumuz token)
+
+using docker compose
+    `docker-compose run --rm app sh -c "python manage.py collectstatic"
+
+    - `docker-compose` runs a  Docker Compose command
+    - `run` will start a specific container defined in config
+    - `--rm` removes the container
+    - `app` is the name of the service
+    - `sh -c` passes in a shell command
+    - Command to run inside container
+
+create a requirements.txt file
+create a Dockerfile
+create a .dockerignore file
+
+`docker build .`
+
+create docker-compose.yml file
+
+`docker-compose build`
+
+#linting and testing 
+`docker-compose run --rm app sh -c "flake8"`
+`docker-compose run --rm app sh -c "python manage.py test"`
+
+#we dont need some package in deployed and we only need it in development
+create a requirements.dev.txt for development requirements
+
+*** create django project with docker ***
+`docker-compose run --rm app sh -c "django-admin startproject config ."`
+
+#runs our services
+`docker-compose up`

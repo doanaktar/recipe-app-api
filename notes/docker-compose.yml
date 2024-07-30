@@ -1,0 +1,24 @@
+#version of docker compose syntax
+version: "3.9"
+
+
+# Define services section
+services:
+  # name of our service
+  app:
+    # Build configuration for app service
+    build:
+      # Set the context to current directory (.)
+      context: .
+      args:
+        - DEV=true
+    # Port mapping for app service
+    ports:
+      - "8000:8000" # Map host port 8000 to container port 8000
+    # Volume mounting for app service
+    volumes:
+      - ./app:/app # Mount local directory './app' to '/app' in the container sync
+    # Command to run when app service starts
+    command:
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+
