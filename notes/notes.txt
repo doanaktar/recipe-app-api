@@ -36,3 +36,16 @@ create a requirements.dev.txt for development requirements
 
 #runs our services
 `docker-compose up`
+
+setting github actions
+create .github dir in root dir, create workflows dir in .github
+create checks.yml file in workflows dir
+
+django tests
+placegolder tests.py added to each app
+or, create tests/ subdirectory to split tests
+    - only use tests.py or tests/ directory (not both)
+    - test modules must stasrt with test_
+
+running test
+`docker-compose run --rm app sh -c "python manage.py test"`
