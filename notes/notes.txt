@@ -65,3 +65,5 @@ or a function checks db after a few seconf sleep. we replace the sleep with mock
 *** add psycopg2 to requirements.txt ***
 
 #dockerfile da bir sey degistirirsen docker-compose down yap ardindan docker-compose build yap.
+
+*** connect django to db in settings and remove the db_sqlite file ***
