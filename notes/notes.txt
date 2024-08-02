@@ -49,3 +49,19 @@ or, create tests/ subdirectory to split tests
 
 running test
 `docker-compose run --rm app sh -c "python manage.py test"`
+
+*** test driven development ***
+first write the test, after write the function
+
+*** mocking ***
+for exampe we have a function which sends e mail to user. with mocking we are not sending any e mail but we check
+that e mail function works.
+or a function checks db after a few seconf sleep. we replace the sleep with mock.
+
+*** create a postgre connection in docker-compose.yml ***
+
+*** add postgre requirements to Dockerfile ***
+
+*** add psycopg2 to requirements.txt ***
+
+#dockerfile da bir sey degistirirsen docker-compose down yap ardindan docker-compose build yap.
