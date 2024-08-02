@@ -67,3 +67,15 @@ or a function checks db after a few seconf sleep. we replace the sleep with mock
 #dockerfile da bir sey degistirirsen docker-compose down yap ardindan docker-compose build yap.
 
 *** connect django to db in settings and remove the db_sqlite file ***
+
+*** yml dosyasina depends on db dedik, bu db baglanmadan uygulamayi calistirma demek. ancak db baglantisindan sonra da 
+    postgre ayaga kalkama devam ediyor ama baglantidan hemen sonra django app calismaya basliyor. bu sirada django calismasi
+    db ayaga kalkmasindan erken olursa proje hata verebiliyor. bu yuzden wait for db icin bir komut yazacagiz.
+
+
+*** creating core app ***
+`docker-compose run --rm app sh -c "python manage.py startapp core"`
+delete tests and views file in core cuz we will note serve any web views in it
+create tests dir in core and create __init__.py file in tests
+
+# noqa yazarsan flake8 o satiri ignore eder
